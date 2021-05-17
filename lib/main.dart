@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'profile_feed/screens/feed_screen.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -19,7 +21,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, }) : super(key: key);
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -29,6 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("hello world"),),
+      body: FeedScreen(),
     );
   }
 }
