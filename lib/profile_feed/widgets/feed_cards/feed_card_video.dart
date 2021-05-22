@@ -1,4 +1,4 @@
-import 'package:dating_stream/profile_feed/widgets/my_video.dart';
+import 'package:dating_stream/utils/widgets/my_network_video.dart';
 import 'package:flutter/material.dart';
 
 import '../my_media.dart';
@@ -11,7 +11,7 @@ class FeedCardVideo extends StatelessWidget {
       children: [
         Positioned.fill(
             child: MyMedia(
-          mediaWidget: MyVideo(),
+          mediaWidget: MyNetworkVideo(),
         )),
         PositionedDirectional(
           bottom: 0,

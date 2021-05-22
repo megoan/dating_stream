@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class FeedCardImage extends StatelessWidget {
+class FeedCardInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(

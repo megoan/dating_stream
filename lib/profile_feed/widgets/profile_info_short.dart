@@ -1,3 +1,5 @@
+
+import 'package:dating_stream/utils/widgets/profile_image_circle.dart';
 import 'package:flutter/material.dart';
 
 class ProfileInfoShort extends StatelessWidget {
@@ -10,17 +12,8 @@ class ProfileInfoShort extends StatelessWidget {
             padding: const EdgeInsets.all(2.0),
             child: Hero(
               tag: "profilePic0",
-              child: Container(
-                height: 50.0,
-                width: 50.0,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage('https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',),
-                    fit: BoxFit.fill,
-                  ),
-                  shape: BoxShape.circle,
-                ),
-              ),
+              child: 
+              ProfileCircle('https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',50),
             ),
           ),
           decoration: new BoxDecoration(
