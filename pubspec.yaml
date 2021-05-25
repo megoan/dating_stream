@@ -33,10 +33,12 @@ dependencies:
   shimmer: ^2.0.0
   video_player: ^2.1.1
   flick_video_player: ^0.3.1
+  provider: ^5.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  test:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

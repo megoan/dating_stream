@@ -1,39 +1,31 @@
+import 'package:dating_stream/utils/models/video.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:video_player/video_player.dart';
 
 class MyNetworkVideo extends StatefulWidget {
+  final Video video;
+  MyNetworkVideo(this.video);
   @override
   _MyNetworkVideoState createState() => _MyNetworkVideoState();
 }
 
 class _MyNetworkVideoState extends State<MyNetworkVideo> {
-  VideoPlayerController _controller = VideoPlayerController.asset("hhttps://ak.picdn.net/shutterstock/videos/1070510560/preview/stock-footage-a-wooden-tablet-full-of-carved-signs-in-etruscan-a-civilization-of-italy-in-ancient-times.mp4");
+ 
 
-  @override
-  void initState() {
-    super.initState();
-    _controller = VideoPlayerController.network('https://ak.picdn.net/shutterstock/videos/1070510560/preview/stock-footage-a-wooden-tablet-full-of-carved-signs-in-etruscan-a-civilization-of-italy-in-ancient-times.mp4')
-      ..initialize().then((_) {
-        print("initialized");
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {});
-      });
-      _controller.setLooping(true);
-    _controller.play();
-  }
+
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         setState(() {
-          _controller.value.isPlaying ? _controller.pause() : _controller.play();
+        widget.video.controller!.value.isPlaying ? widget.video.controller!.pause() : widget.video.controller!.play();
         });
       },
       child: Center(
-        child: _controller.value.isInitialized
-            ? VideoPlayer(_controller)
+        child: widget.video.controller!.value.isInitialized
+            ? VideoPlayer(widget.video.controller!)
             : Shimmer.fromColors(
                 baseColor: Colors.grey.shade300,
                 highlightColor: Colors.grey.shade100,
@@ -47,9 +39,9 @@ class _MyNetworkVideoState extends State<MyNetworkVideo> {
     );
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  //   widget.video.controller!.dispose();
+  // }
 }
