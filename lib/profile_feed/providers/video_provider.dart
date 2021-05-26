@@ -34,9 +34,30 @@ class VideoProvider extends ChangeNotifier {
     //await Future.delayed(Duration(seconds: 3));
     return videos;
   }
+  List<int>splitList(int myIndex,int myLength,int myThreshhold){
+    List<int>sections=[0,0,0,0,0,0];
+      if (myIndex > myThreshhold) {
+        sections[0] = 0;
+        sections[1] = myIndex - myThreshhold;
+        sections[4] = myIndex - 4;
+      } else {
+        sections[0] = -1;
+        sections[1] = -1;
+      }
 
+      if (myLength - myIndex > myThreshhold) {
+        sections[2] = myIndex + 6;
+        sections[3] = myLength - 1;
+        sections[5] = myIndex + myThreshhold;
+      } else {
+        sections[2] = -1;
+        sections[3] = -1;
+        sections[5] = myLength - 1;
+      }
+      return sections;
+  }
   void playVideo(int index)async{
-
+      List<int>values=splitList(index,videos.length,videoThreshold);
       int disposeStartMin = 0;
       int disposeStartMax = 0;
       int disposeEndMin = 0;

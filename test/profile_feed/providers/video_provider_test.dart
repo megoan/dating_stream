@@ -1,4 +1,5 @@
 // Import the test package and Counter class
+import 'package:dating_stream/profile_feed/providers/video_provider.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -6,32 +7,16 @@ void main() {
     test('normal case', () {
       int length = 20;
       int index = 10;
+      int threshhold = 5;
+      VideoProvider videoProvider = new VideoProvider();
+      List<int> values = videoProvider.splitList(index, length, threshhold);
 
-      int disposeStartMin = 0;
-      int disposeStartMax = 0;
-      int disposeEndMin = 0;
-      int disposeEndMax = 0;
-      int initStartMin = 0;
-      int initStartMax = 0;
-
-      if (index > 5) {
-        disposeStartMin = 0;
-        disposeStartMax = index - 5;
-        initStartMin = index - 4;
-      } else {
-        disposeStartMin = -1;
-        disposeStartMax = -1;
-      }
-
-      if (length - index > 5) {
-        disposeEndMin = index + 6;
-        disposeEndMax = length - 1;
-        initStartMax = index + 5;
-      } else {
-        disposeEndMin = -1;
-        disposeEndMax = -1;
-        initStartMax = length - 1;
-      }
+      int disposeStartMin = values[0];
+      int disposeStartMax = values[1];
+      int disposeEndMin = values[2];
+      int disposeEndMax = values[3];
+      int initStartMin = values[4];
+      int initStartMax = values[5];
 
       expect(disposeStartMin, 0);
       expect(disposeStartMax, 5);
@@ -46,32 +31,16 @@ void main() {
     test('index smaller then 5', () {
       int length = 20;
       int index = 3;
+      int threshhold = 5;
+      VideoProvider videoProvider = new VideoProvider();
+      List<int> values = videoProvider.splitList(index, length, threshhold);
 
-      int disposeStartMin = 0;
-      int disposeStartMax = 0;
-      int disposeEndMin = 0;
-      int disposeEndMax = 0;
-      int initStartMin = 0;
-      int initStartMax = 0;
-
-      if (index > 5) {
-        disposeStartMin = 0;
-        disposeStartMax = index - 5;
-        initStartMin = index - 4;
-      } else {
-        disposeStartMin = -1;
-        disposeStartMax = -1;
-      }
-
-      if (length - index > 5) {
-        disposeEndMin = index + 6;
-        disposeEndMax = length - 1;
-        initStartMax = index + 5;
-      } else {
-        disposeEndMin = -1;
-        disposeEndMax = -1;
-        initStartMax = length - 1;
-      }
+      int disposeStartMin = values[0];
+      int disposeStartMax = values[1];
+      int disposeEndMin = values[2];
+      int disposeEndMax = values[3];
+      int initStartMin = values[4];
+      int initStartMax = values[5];
 
       expect(disposeStartMin, -1);
       expect(disposeStartMax, -1);
@@ -86,32 +55,16 @@ void main() {
     test('index bigger then 15', () {
       int length = 20;
       int index = 17;
+      int threshhold = 5;
+      VideoProvider videoProvider = new VideoProvider();
+      List<int> values = videoProvider.splitList(index, length, threshhold);
 
-      int disposeStartMin = 0;
-      int disposeStartMax = 0;
-      int disposeEndMin = 0;
-      int disposeEndMax = 0;
-      int initStartMin = 0;
-      int initStartMax = 0;
-
-      if (index > 5) {
-        disposeStartMin = 0;
-        disposeStartMax = index - 5;
-        initStartMin = index - 4;
-      } else {
-        disposeStartMin = -1;
-        disposeStartMax = -1;
-      }
-
-      if (length - index > 5) {
-        disposeEndMin = index + 6;
-        disposeEndMax = length - 1;
-        initStartMax = index + 5;
-      } else {
-        disposeEndMin = -1;
-        disposeEndMax = -1;
-        initStartMax = length - 1;
-      }
+      int disposeStartMin = values[0];
+      int disposeStartMax = values[1];
+      int disposeEndMin = values[2];
+      int disposeEndMax = values[3];
+      int initStartMin = values[4];
+      int initStartMax = values[5];
 
       expect(disposeStartMin, 0);
       expect(disposeStartMax, 12);
@@ -123,35 +76,19 @@ void main() {
       expect(initStartMax, 19);
     });
 
-        test('index is 0', () {
+    test('index is 0', () {
       int length = 20;
       int index = 0;
+      int threshhold = 5;
+      VideoProvider videoProvider = new VideoProvider();
+      List<int> values = videoProvider.splitList(index, length, threshhold);
 
-      int disposeStartMin = 0;
-      int disposeStartMax = 0;
-      int disposeEndMin = 0;
-      int disposeEndMax = 0;
-      int initStartMin = 0;
-      int initStartMax = 0;
-
-      if (index > 5) {
-        disposeStartMin = 0;
-        disposeStartMax = index - 5;
-        initStartMin = index - 4;
-      } else {
-        disposeStartMin = -1;
-        disposeStartMax = -1;
-      }
-
-      if (length - index > 5) {
-        disposeEndMin = index + 6;
-        disposeEndMax = length - 1;
-        initStartMax = index + 5;
-      } else {
-        disposeEndMin = -1;
-        disposeEndMax = -1;
-        initStartMax = length - 1;
-      }
+      int disposeStartMin = values[0];
+      int disposeStartMax = values[1];
+      int disposeEndMin = values[2];
+      int disposeEndMax = values[3];
+      int initStartMin = values[4];
+      int initStartMax = values[5];
 
       expect(disposeStartMin, -1);
       expect(disposeStartMax, -1);
@@ -166,32 +103,16 @@ void main() {
     test('index is 19', () {
       int length = 20;
       int index = 19;
+      int threshhold = 5;
+      VideoProvider videoProvider = new VideoProvider();
+      List<int> values = videoProvider.splitList(index, length, threshhold);
 
-      int disposeStartMin = 0;
-      int disposeStartMax = 0;
-      int disposeEndMin = 0;
-      int disposeEndMax = 0;
-      int initStartMin = 0;
-      int initStartMax = 0;
-
-      if (index > 5) {
-        disposeStartMin = 0;
-        disposeStartMax = index - 5;
-        initStartMin = index - 4;
-      } else {
-        disposeStartMin = -1;
-        disposeStartMax = -1;
-      }
-
-      if (length - index > 5) {
-        disposeEndMin = index + 6;
-        disposeEndMax = length - 1;
-        initStartMax = index + 5;
-      } else {
-        disposeEndMin = -1;
-        disposeEndMax = -1;
-        initStartMax = length - 1;
-      }
+      int disposeStartMin = values[0];
+      int disposeStartMax = values[1];
+      int disposeEndMin = values[2];
+      int disposeEndMax = values[3];
+      int initStartMin = values[4];
+      int initStartMax = values[5];
 
       expect(disposeStartMin, 0);
       expect(disposeStartMax, 14);
